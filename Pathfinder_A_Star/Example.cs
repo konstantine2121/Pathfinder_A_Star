@@ -27,19 +27,19 @@ namespace Pathfinder_A_Star
             PrintPoint(endPoint);
             Console.WriteLine();
 
-            if (!pathfinder.FindPath(startPoint, endPoint, out var path))
+            if (pathfinder.FindPath(startPoint, endPoint, out var path))
+            {
+                Console.WriteLine("Путь найден:");
+
+                foreach (var p in path)
+                {
+                    PrintPoint(p);
+                }
+            }
+            else
             {
                 Console.WriteLine("Путь не найден");
             }
-
-            Console.WriteLine("Путь найден:");
-
-            foreach ( var p in path)
-            {
-                PrintPoint(p);
-            }
-
-            int d = 0;
         }
 
         private void PrintPoint(Point point)
