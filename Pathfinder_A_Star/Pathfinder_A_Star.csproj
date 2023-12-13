@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Example.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="NodeChoosing\ClosestToTargetNodeChooser.cs" />
+    <Compile Include="NodeChoosing\FirstNodeChooser.cs" />
+    <Compile Include="NodeChoosing\INextNodeChoosingStrategy.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapDebugView.cs" />
     <Compile Include="Pathfinder.cs" />

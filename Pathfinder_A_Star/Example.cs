@@ -1,4 +1,5 @@
 ﻿using System;
+using Pathfinder_A_Star.NodeChoosing;
 
 namespace Pathfinder_A_Star
 {
@@ -15,7 +16,8 @@ namespace Pathfinder_A_Star
 
             Console.WriteLine(view.View + "\n");
 
-            var pathfinder = new Pathfinder(map);
+            //var pathfinder = new Pathfinder(map, new FirstNodeChooser());
+            var pathfinder = new Pathfinder(map, new ClosestToTargetNodeChooser());
 
             var startPoint = new Point(0, 0);
             var endPoint = new Point(4, 3);

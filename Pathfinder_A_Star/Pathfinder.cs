@@ -7,10 +7,12 @@ namespace Pathfinder_A_Star
     internal class Pathfinder
     {
         private readonly Map _map;
+        private readonly INextNodeChoosingStrategy _chooser;
 
-        public Pathfinder(Map map)
+        public Pathfinder(Map map, INextNodeChoosingStrategy chooser)
         {
             _map = map ?? throw new ArgumentNullException(nameof(map));
+            _chooser = chooser;
         }
 
         public bool FindPath(Point start, Point end, out LinkedList<PathNode> path)
@@ -28,7 +30,7 @@ namespace Pathfinder_A_Star
 
             while (reachable.Any())
             {
-                var node = ChooseNode(reachable);
+                var node = _chooser.ChooseNode(reachable, end);
 
                 if (node == end)
                 {
@@ -52,11 +54,6 @@ namespace Pathfinder_A_Star
             }
 
             return false;
-        }
-
-        private PathNode ChooseNode(IEnumerable<PathNode> reachable)
-        {
-            return reachable.First();
         }
 
         private IEnumerable<PathNode> GetAdjacentNodes(PathNode node)

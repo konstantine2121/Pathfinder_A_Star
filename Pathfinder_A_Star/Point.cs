@@ -1,4 +1,6 @@
-﻿namespace Pathfinder_A_Star
+﻿using System;
+
+namespace Pathfinder_A_Star
 {
     internal struct Point
     {
@@ -11,6 +13,11 @@
         public int X { get; set; }
 
         public int Y { get; set; }
+
+        public int GetDistance(Point other)
+        {
+            return Math.Abs(X - other.X) + Math.Abs(Y - other.Y);
+        }
 
         public override bool Equals(object obj)
         {
