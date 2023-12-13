@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Pathfinder_A_Star
 {
-   [DebuggerTypeProxy(typeof(MapDebugView))]
+    [DebuggerTypeProxy(typeof(MapDebugView))]
     internal class Map
     {
         #region Constants
@@ -23,14 +23,22 @@ namespace Pathfinder_A_Star
 
         #region Properties
 
+        /// <summary>
+        /// Проверить на наличие стены
+        /// </summary>
+        /// <returns>true если стена</returns>
         public bool this[int left, int top]
         {
             get { return _cells[top, left]; }
         }
 
-        public bool this[Node node]
+        /// <summary>
+        /// Проверить на наличие стены
+        /// </summary>
+        /// <returns>true если стена</returns>
+        public bool this[Point point]
         {
-            get { return this[node.X, node.Y]; }
+            get { return this[point.X, point.Y]; }
         }
 
         public int Height => _cells.GetLength(0);

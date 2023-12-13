@@ -2,15 +2,15 @@
 {
     internal static class Extensions
     {
-        public static bool BelongsToMap(this Node node, Map map)
+        public static bool BelongsToMap(this Point point, Map map)
         {
-            return Range.Contains(map.Width, node.X) && 
-                Range.Contains(map.Height, node.Y);
+            return Range.Contains(map.Width - 1, point.X) && 
+                Range.Contains(map.Height - 1, point.Y);
         }
 
-        public static bool Contains(this Map map, Node node) 
+        public static bool Contains(this Map map, Point point) 
         {
-            return node.BelongsToMap(map);
+            return point.BelongsToMap(map);
         }
     }
 

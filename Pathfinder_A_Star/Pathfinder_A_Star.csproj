@@ -48,7 +48,8 @@
     <Compile Include="Map.cs" />
     <Compile Include="MapDebugView.cs" />
     <Compile Include="Pathfinder.cs" />
-    <Compile Include="Node.cs" />
+    <Compile Include="PathNode.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Range.cs" />
